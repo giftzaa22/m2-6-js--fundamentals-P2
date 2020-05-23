@@ -71,6 +71,8 @@ We want a function that can transform it from that shape to this shape:
   ]
 }
 
+
+
 Specifically:
 
 - Address becomes nested in an object
@@ -87,12 +89,62 @@ For example, the main superpowers array should be:
 ⛔️ ['can-blink-lights', null]
 */
 
-function transformData(data) {
-  // Your code here
-}
+// function transformData(data) {
+//   // Your code here
+// }
 
+function getSuperpowers(power1, power2) {
+
+let powersArray = [];
+
+  if (power1) {
+    powersArray.push(power1);
+  }
+  if (power2) {
+    powersArray.push(power2);
+  }
+
+  return powersArray;
+}
+function transformData(data) {
+let outputData = {
+name: data.name,
+age: data.age,
+status: data.status,
+address: {
+  streetAddress: data.address1,
+  city: data.addressCity,
+  state: data.addressState,
+  country: data.addressCountry,
+},
+};
+outputData.superpowers = getSuperpowers(data.superpower1, data.superpower2);
+
+let mother = {
+type: 'mother',
+name: data.motherName,
+age: data.motherAge,
+status: data.motherStatus,
+superpowers: getSuperpowers(data.motherSuperpower1, data.motherSuperpower2),
+};
+let girlfriend = {
+type: 'girlfriend',
+name: data.girlfriendName,
+age: data.girlfriendAge,
+status: data.girlfriendStatus,
+superpowers: getSuperpowers(
+  data.girlfriendSuperpower1,
+  data.girlfriendSuperpower2
+),
+};
+
+outputData.relationships = [mother, girlfriend];
+
+return outputData;
+}
+console.log(JSON.stringify(transformData(inputData), null, 2));
 /*
   `JSON.stringify` is used to "pretty-print" the output, so that it's easy
   to see what it looks like, and debug any problems.
 */
-console.log(JSON.stringify(transformData(inputData), null, 2));
+// console.log(JSON.stringify(transformData(inputData), null, 2));

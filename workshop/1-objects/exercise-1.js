@@ -3,6 +3,23 @@
 // Create an object that represents *you*.
 // It should contain your first name, last name, age and hometown.
 
+
+let myInfo = {
+    name:{
+        fName: 'hiba',
+        sName: 'zaarour',
+    },
+    age: '34',
+    city: 'montreal',
+    siblings: 3,
+    petName: 'NAN',
+    monthOfBirth: 'July'
+}
+console.log(myInfo);
+console.log(myInfo.siblings);
+console.log(myInfo.monthOfBirth);
+console.log(myInfo.age);
+
 // It should look something like this
 // let myObject = {
 //     name: {
@@ -31,7 +48,11 @@
 //     - Pets (number of pets, names of pets, etc.)
 
 // HINT: You can just modify the object that you created before.
+myInfo.favoriteTvShows = 'friends';
+myInfo.favoritActress = 'Sandra Bullock';
+myInfo.favoriteFood = 'Pizza';
 
+console.log(myInfo);
 //-------------------------------------------------
 
 // Exercise B
@@ -47,7 +68,13 @@
 // HINT: Most movies have multiple actors. What data-structure do we use to
 // represent a collection of similar things?
 
-let favoriteMovie = {};
+let favoriteMovie = {
+  Title: 'the blind side',
+  Director: 'John Lee Hancock',
+  YearReleased: '2009',
+  Rating: '5stars',
+  Actors: ['Sandra Bullock','lily collins','Quinton Aaron' ]
+};
 
 //-------------------------------------------------
 
@@ -62,8 +89,8 @@ const person = {
   hometown: 'somewhere',
 };
 
-person[age]; // => 26
-person.key; // => "Alyssa P. Hacker"
+console.log(person.age); // => 26
+console.log(person.key); // => "Alyssa P. Hacker"
 
 //-------------------------------------------------
 
@@ -85,7 +112,7 @@ const alyssa = {
 };
 
 function fullName(person) {
-  // Your code here
+  return `${person.name.first},${person.name.middle},${person.name.last}` 
 }
 
 console.log(fullName(alyssa)); // => "Alyssa P. Hacker"
@@ -100,6 +127,8 @@ console.log(fullName(alyssa)); // => "Alyssa P. Hacker"
 // when given the object `{name: {first: "John", last: "Doe"}}`, fix it so that
 // it does.
 
+
+
 const rick = {
   name: {
     first: 'Rick',
@@ -109,6 +138,11 @@ const rick = {
 };
 
 function betterFullName(person) {
+  if (person.name.middle) {
+    return `${person.name.first} ${person.name.middle} ${person.name.last}`
+  } else {
+    return `${person.name.first} ${person.name.last}`
+  }
   // Your code here
 }
 

@@ -10,6 +10,7 @@ const geometry = {
   weight: 100,
 };
 
+console.log(`width is ${geometry[myKey]}`);
 // In Javascript objects, there are two ways to look up a value:
 // - Dot notation (geometry.length)
 // - Brackets (geometry["length"])
